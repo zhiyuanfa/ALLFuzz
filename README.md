@@ -1,4 +1,4 @@
-一款用Python编写的Fuzz工具
+一款开箱即用的Python Fuzz工具
 
 目前实现功能：
   基于YAML文件的批量POC验证工具
