@@ -6,11 +6,12 @@ import random
 import os
 from concurrent.futures import ThreadPoolExecutor
 import warnings
+from globals.Global import colored 
 
 # 忽略FutureWaring
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-POCS_DIR = 'pocs'
+POCS_DIR = 'test'
 
 # 递归扫描POC文件中的键值对
 def find_key_value(data, key):
@@ -27,16 +28,6 @@ def find_key_value(data, key):
             if result is not None:
                 return result
     return None
-
-# 颜色
-def colored(text, color):
-    colors = {
-        "red": "\033[91m",
-        "green": "\033[92m",
-        "yellow": "\033[93m",
-        "white": "\033[97m"
-    }
-    return colors.get(color, colors["white"]) + text + "\033[0m"
 
 # 日志存放
 def log_message(message, file_name):
@@ -120,5 +111,12 @@ def verify_all_pocs(url):
                     results.append(result)
             except Exception as exc:
                 pass
-    print(colored('\n[+++]扫描结果存放在日志文件中，FUZZ测试，结果可能有所偏差，还需要手工验证-----log.txt', 'green'))
+
     return results
+
+# poc验证调用方法
+def poc(str):
+    results = verify_all_pocs(str)
+    for filename, result in results:
+        print(colored(f"Result for {filename}: {'Success' if result else 'Fail'}", 'green'))
+    print(colored('\n[+++]扫描结果存放在日志文件中，FUZZ测试，结果可能有所偏差，还需要手工验证-----log.txt', 'green'))
