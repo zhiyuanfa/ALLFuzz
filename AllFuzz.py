@@ -32,15 +32,15 @@ def main():
         urls = []
         if args.icp:
             for i in range(len(strs)):
-                urls.append(Icp_Module.icp(strs[i-1]))
+                urls.append(Icp_Module.icp(strs[i]))
             print(colored(f'{urls}','green'))
             if args.poc:
                 for i in range(len(urls)):
-                    Poc_Module.poc(urls[i-1])
+                    Poc_Module.poc(urls[i])
                 print(colored('\n[+++]扫描结果存放在日志文件中，FUZZ测试，结果可能有所偏差，还需要手工验证-----log.txt','green'))
         elif args.poc:
             for i in range(len(strs)):
-                Poc_Module.poc(strs[i-1])
+                Poc_Module.poc(strs[i])
             print(colored('\n[+++]扫描结果存放在日志文件中，FUZZ测试，结果可能有所偏差，还需要手工验证-----log.txt','green'))
 
     elif not args:

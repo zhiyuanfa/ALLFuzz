@@ -94,7 +94,7 @@ def verify_poc(url, yaml_file):
 def verify_all_pocs(url):
     results = []
     processed_files = set()  # 用于跟踪已处理的文件
-    with ThreadPoolExecutor(max_workers=30) as executor:
+    with ThreadPoolExecutor(max_workers=50) as executor:
         futures = []
         for filename in os.listdir(POCS_DIR):
             if filename.endswith('.yaml') or filename.endswith('.yml'):
