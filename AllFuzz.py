@@ -22,6 +22,7 @@ def main():
             Icp_Module.icp(args.str)
         if args.poc:
             Poc_Module.poc(args.str)
+            print(colored('\n[+++]扫描结果存放在日志文件中，FUZZ测试，结果可能有所偏差，还需要手工验证-----log.txt','green'))
 
 
     # 如果引用file参数
@@ -32,13 +33,15 @@ def main():
         if args.icp:
             for i in range(len(strs)):
                 urls.append(Icp_Module.icp(strs[i-1]))
-            print(urls)
+            print(colored(f'{urls}','green'))
             if args.poc:
                 for i in range(len(urls)):
-                    Poc_Module.poc(urls[i])
+                    Poc_Module.poc(urls[i-1])
+                print(colored('\n[+++]扫描结果存放在日志文件中，FUZZ测试，结果可能有所偏差，还需要手工验证-----log.txt','green'))
         elif args.poc:
             for i in range(len(strs)):
                 Poc_Module.poc(strs[i-1])
+            print(colored('\n[+++]扫描结果存放在日志文件中，FUZZ测试，结果可能有所偏差，还需要手工验证-----log.txt','green'))
 
     elif not args:
         print(colored("Error: 请检查参数是否输入错误", "red"))

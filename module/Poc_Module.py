@@ -119,4 +119,4 @@ def poc(str):
     results = verify_all_pocs(str)
     for filename, result in results:
         print(colored(f"Result for {filename}: {'Success' if result else 'Fail'}", 'green'))
-    print(colored('\n[+++]扫描结果存放在日志文件中，FUZZ测试，结果可能有所偏差，还需要手工验证-----log.txt', 'green'))
+
