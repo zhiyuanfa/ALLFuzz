@@ -11,6 +11,7 @@ def main():
     parser.add_argument('--file','-f', help='引入文件，如："python AllFuzz.py --file path/file.txt"', type=str)
     parser.add_argument('--icp', help='执行ICP备案信息检测，需要配合--url/--file目前支持传入公司名查询',action='store_true')
     parser.add_argument('--poc', help='执行POC验证，需要配合--url/--filePOC验证默认关闭', action='store_true')
+    parser.add_argument('--burp ')
 
     args = parser.parse_args()
 
