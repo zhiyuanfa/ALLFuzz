@@ -11,7 +11,7 @@ from globals.Global import colored
 # 忽略FutureWaring
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-POCS_DIR = 'test'
+POCS_DIR = 'pocs'
 
 # 递归扫描POC文件中的键值对
 def find_key_value(data, key):
